@@ -31,6 +31,27 @@ const testCases = [
     fromUSDtoPLNExpected: '$345.00 = PLN 1,207.50',
     fromUSDtoUSDExpected: '$345.00 = $345.00',
   },
+  {
+    amount: -100,
+    fromPLNtoUSDExpected: 'Wrong value…',
+    fromPLNtoPLNExpected: 'Wrong value…',
+    fromUSDtoPLNExpected: 'Wrong value…',
+    fromUSDtoUSDExpected: 'Wrong value…',
+  },
+  {
+    amount: -40,
+    fromPLNtoUSDExpected: 'Wrong value…',
+    fromPLNtoPLNExpected: 'Wrong value…',
+    fromUSDtoPLNExpected: 'Wrong value…',
+    fromUSDtoUSDExpected: 'Wrong value…',
+  },
+  {
+    amount: -0.1,
+    fromPLNtoUSDExpected: 'Wrong value…',
+    fromPLNtoPLNExpected: 'Wrong value…',
+    fromUSDtoPLNExpected: 'Wrong value…',
+    fromUSDtoUSDExpected: 'Wrong value…',
+  },
 ];
 
 describe('Component ResultBox', () => {
