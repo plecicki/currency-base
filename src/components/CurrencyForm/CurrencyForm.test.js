@@ -3,19 +3,20 @@ import CurrencyForm from './CurrencyForm';
 import userEvent from '@testing-library/user-event';
 import { cleanup } from "@testing-library/react";
 
+const testCases = [
+  { amount: '100', from: 'PLN', to: 'USD' },
+  { amount: '20', from: 'USD', to: 'PLN' },
+  { amount: '200', from: 'PLN', to: 'USD' },
+  { amount: '345', from: 'USD', to: 'PLN' },
+];
+
 describe('Component CurrencyForm', () => {
   it('should render without crashing', () => {
     render(<CurrencyForm action={() => {}} />);
   });
-  it('should run action callback with proper data on form submit', () => {
-    const testCases = [
-      { amount: '100', from: 'PLN', to: 'USD' },
-      { amount: '20', from: 'USD', to: 'PLN' },
-      { amount: '200', from: 'PLN', to: 'USD' },
-      { amount: '345', from: 'USD', to: 'PLN' },
-    ];
-
-    for(const testObj of testCases) {
+  for(const testObj of testCases) {
+    it(`should run action callback with proper data on form submit ` +
+      `with amount ${testObj.amount} from ${testObj.from} to ${testObj.to}`, () => {
       const action = jest.fn();
 
       // render component
@@ -41,6 +42,6 @@ describe('Component CurrencyForm', () => {
 
       //Clean
       cleanup();
-    }
-  });
+    });
+  }
 });
